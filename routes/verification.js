@@ -65,7 +65,7 @@ router.route("/register").post(async (req, res) => {
                 if (err) console.log(err);
                 if (result) {
                   let emailToken = await encodeToken(email);
-                  let Tokenurl = `http://localhost:3000/auth/${emailToken}`;
+                  let Tokenurl = `https://login-app6.herokuapp.com/auth/${emailToken}`;
                   let name = fname + " " + lname;
                   transporter.sendMail(
                     {
@@ -273,7 +273,7 @@ router.route("/forgotPassword").get(async (req, res) => {
                 },
               }
             );
-            let Tokenurl = `http://localhost:3000/passwordauth/${emailToken}`;
+            let Tokenurl = `https://login-app6.herokuapp.com/passwordauth/${emailToken}`;
             let name = `${email.split("@")[0]}`;
             //email template for sending token
             var mailOptions = {
