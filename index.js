@@ -23,7 +23,9 @@ mongoClient.connect(
         db.close();
     }
 );
-
+app.get("/",(req,res)=> {
+    res.send("Hello from Server")
+    res.end()})
 app.use('/', verification);
 app.use('/admin', accessToAdmin,accessToUser);
 app.use('/user', accessToUser);
